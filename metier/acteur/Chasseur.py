@@ -1,7 +1,7 @@
 
 class Chasseur:
 
-    def __init__(self, id, nom, age, classe, argent, salaire, idPosition, idGuilde = None, idGroupe = None):
+    def __init__(self, id, age, nom, argent, idPosition, classe, salaire, idGuilde = None, idGroupe = None):
         self._id = id
         self._nom = nom
         self._age = age
