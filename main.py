@@ -34,11 +34,11 @@ def getMonstres(idDonjon):
 
 @app.get("/chasseurs/guilde/{idGuilde}")
 def getChasseursGuilde(idGuilde):
-    pass
+    return ChasseurService.getChasseursGuilde(conn, idGuilde)
 
 @app.get("/chasseurs/lieu/{idLieu}")
 def getChasseursLieu(idLieu):
-    pass
+    return ChasseurService.getChasseursLieu(conn, idLieu)
 
 
 if __name__ == "__main__":

@@ -10,6 +10,22 @@ class ChasseurService:
             res.append(chasseurDict)
         return res
 
+    def getChasseursGuilde(conn, idGuilde):
+        listeChasseurs = ChasseurDao.getChasseursGuilde(conn, idGuilde)
+        res = []
+        for chasseur in listeChasseurs:
+            chasseurDict = ChasseurService.chasseurToDict(chasseur)
+            res.append(chasseurDict)
+        return res
+
+    def getChasseursLieu(conn, idLieu):
+        listeChasseurs = ChasseurDao.getChasseursLieu(conn, idLieu)
+        res = []
+        for chasseur in listeChasseurs:
+            chasseurDict = ChasseurService.chasseurToDict(chasseur)
+            res.append(chasseurDict)
+        return res
+
     
     def chasseurToDict(chasseur):
         dict = {}
