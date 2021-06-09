@@ -30,8 +30,8 @@ class Chasseur:
     def getSalaire(self):
         return self._salaire
 
-    def getPosition(self):
-        return self._position
+    def getIdPosition(self):
+        return self._idPosition
 
     def getIdGuilde(self):
         return self._idGuilde
