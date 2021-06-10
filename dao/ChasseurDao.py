@@ -17,11 +17,11 @@ class ChasseurDao:
                 try:    
                     idGuilde = ChasseurDao.isInGuilde(conn, id)
                 except:
-                    idGuilde = None
+                    idGuilde = 0
                 try:
                     idGroupe = ChasseurDao.isInGroupe(conn, id)
                 except:
-                    idGroupe = None
+                    idGroupe = 0
                 chasseur = Chasseur(id, c[1], c[2], c[3], c[4], c[5], c[6], idGuilde, idGroupe)
                 res.append(chasseur)
         except psycopg2.Error as error:
@@ -58,16 +58,20 @@ class ChasseurDao:
         res = []
         cur = conn.cursor()
         try:
-            cur.execute("SELECT * FROM Chasseur WHERE idGuilde={};".format(idGuilde))
-            listeTuples = cur.fetchall()
-            for c in listeTuples:
+            cur.execute("SELECT * FROM ChasseurGuilde WHERE idGuilde ={};".format(idGuilde))
+            listeId = cur.fetchall()
+            for c in listeId:
                 id = c[0]
-                try:
-                    idGroupe = ChasseurDao.isInGroupe(conn, id)
-                except:
-                    idGroupe = None
-                chasseur = Chasseur(id, c[1], c[2], c[3], c[4], c[5], c[6], idGuilde, idGroupe)
-                res.append(chasseur)
+                cur.execute("SELECT * FROM Chasseur WHERE id={};".format(id))
+                listeTuples = cur.fetchall()
+                for c in listeTuples:
+                    id = c[0]
+                    try:
+                        idGroupe = ChasseurDao.isInGroupe(conn, id)
+                    except:
+                        idGroupe = 0
+                    chasseur = Chasseur(id, c[1], c[2], c[3], c[4], c[5], c[6], idGuilde, idGroupe)
+                    res.append(chasseur)
         except psycopg2.Error as error:
             raise error
         finally:
@@ -85,11 +89,11 @@ class ChasseurDao:
                 try:    
                     idGuilde = ChasseurDao.isInGuilde(conn, id)
                 except:
-                    idGuilde = None
+                    idGuilde = 0
                 try:
                     idGroupe = ChasseurDao.isInGroupe(conn, id)
                 except:
-                    idGroupe = None
+                    idGroupe = 0
                 chasseur = Chasseur(id, c[1], c[2], c[3], c[4], c[5], c[6], idGuilde, idGroupe)
                 res.append(chasseur)
         except psycopg2.Error as error:

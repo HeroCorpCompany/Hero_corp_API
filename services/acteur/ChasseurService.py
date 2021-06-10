@@ -29,13 +29,14 @@ class ChasseurService:
     
     def chasseurToDict(chasseur):
         dict = {}
-        dict["id"] = chasseur.getId()
-        dict["nom"] = chasseur.getNom()
-        dict["age"] = chasseur.getAge()
-        dict["argent"] = chasseur.getArgent()
-        dict["idPosition"] = chasseur.getIdPosition()
-        dict["classe"] = chasseur.getClasse()
-        dict["salaire"] = chasseur.getSalaire()
-        dict["idGuilde"] = chasseur.getIdGuilde()
-        dict["idGroupe"] = chasseur.getIdGroupe()
+        if chasseur != None:
+            dict["id"] = chasseur.getId()
+            dict["nom"] = chasseur.getNom()
+            dict["age"] = chasseur.getAge()
+            dict["argent"] = chasseur.getArgent()
+            dict["idPosition"] = chasseur.getIdPosition()
+            dict["classe"] = chasseur.getClasse()
+            dict["salaire"] = chasseur.getSalaire()
+            dict["idGuilde"] = chasseur.getIdGuilde()
+            dict["idGroupe"] = chasseur.getIdGroupe()
         return dict

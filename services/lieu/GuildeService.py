@@ -12,7 +12,8 @@ class GuildeService:
 
     def guildeToDict(guilde):
         dict = {}
-        dict["id"] = guilde.getId()
-        dict["argent"] = guilde.getArgent()
-        dict["recrute"] = guilde.isRecruting()
+        if guilde != None:
+            dict["id"] = guilde.getId()
+            dict["argent"] = guilde.getArgent()
+            dict["recrute"] = guilde.isRecruting()
         return dict

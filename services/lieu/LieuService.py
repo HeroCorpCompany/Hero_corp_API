@@ -13,10 +13,11 @@ class LieuService:
             
     def lieuToDict(lieu):
         dict = {}
-        dict["id"] = lieu.getId()
-        dict["type"] = lieu.getType()
-        dict["x"] = lieu.getX()
-        dict["y"] = lieu.getY()
+        if lieu != None:
+            dict["id"] = lieu.getId()
+            dict["type"] = lieu.getType()
+            dict["x"] = lieu.getX()
+            dict["y"] = lieu.getY()
         return dict
 
     def getLieu(conn, idLieu):

@@ -12,9 +12,10 @@ class MonstreService:
 
     def monstreToDict(monstre):
         dict = {}
-        dict["id"] = monstre.getId()
-        dict["nom"] = monstre.getNom()
-        dict["classe"] = monstre.getClasse()
-        dict["recompense"] = monstre.getRecompense()
-        dict["idDonjon"] = monstre.getIdDonjon()
+        if monstre != None:
+            dict["id"] = monstre.getId()
+            dict["nom"] = monstre.getNom()
+            dict["classe"] = monstre.getClasse()
+            dict["recompense"] = monstre.getRecompense()
+            dict["idDonjon"] = monstre.getIdDonjon()
         return dict

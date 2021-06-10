@@ -22,11 +22,13 @@ def getChasseurs():
 
 @app.get("/lieux")
 def getLieux():
-    return LieuService.getListeLieux(conn)
+    res = LieuService.getListeLieux(conn)
+    print(res)
+    return res
 
 @app.get("/guildes/{idGuilde}")
 def getGuilde(idGuilde):
-    return GuildeService.getGuilde(conn, idGuilde)
+    return {"guilde": GuildeService.getGuilde(conn, idGuilde)}
 
 @app.get("/monstres/{idDonjon}")
 def getMonstres(idDonjon):

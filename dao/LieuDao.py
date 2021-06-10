@@ -18,6 +18,7 @@ class LieuDao:
             raise error
         finally:
             cur.close()
+            print(res)
             return res
     
     def getListeDonjons(conn):
