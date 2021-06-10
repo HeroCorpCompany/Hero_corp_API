@@ -1,3 +1,4 @@
+from dao.StatsDao import StatsDao
 import uvicorn
 from fastapi import FastAPI
 from services.acteur.ChasseurService import ChasseurService
@@ -23,7 +24,6 @@ def getChasseurs():
 @app.get("/lieux")
 def getLieux():
     res = LieuService.getListeLieux(conn)
-    print(res)
     return res
 
 @app.get("/guildes/{idGuilde}")
@@ -42,6 +42,9 @@ def getChasseursGuilde(idGuilde):
 def getChasseursLieu(idLieu):
     return ChasseurService.getChasseursLieu(conn, idLieu)
 
+@app.get("/stats")
+def getStats():
+    return StatsDao.getStats(conn)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=8000)
