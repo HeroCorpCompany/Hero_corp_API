@@ -18,3 +18,19 @@ class MonstreDao:
         finally:
             cur.close()
             return res
+
+    def getListeMonstres(conn):
+        res = []
+        cur = conn.cursor()
+        try:
+            cur.execute("SELECT * FROM Monstre;")
+            listeTuples = cur.fetchall()
+            for c in listeTuples:
+                id = c[0]
+                monstre = Monstre(id, c[1], c[2], c[3], c[4])
+                res.append(monstre)
+        except psycopg2.Error as error:
+            raise error
+        finally:
+            cur.close()
+            return res

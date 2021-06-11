@@ -1,3 +1,4 @@
+from services.WorldService import WorldService
 from dao.StatsDao import StatsDao
 import uvicorn
 from fastapi import FastAPI
@@ -45,6 +46,10 @@ def getChasseursLieu(idLieu):
 @app.get("/stats")
 def getStats():
     return StatsDao.getStats(conn)
+
+@app.get("/all")
+def getAll():
+    return WorldService.getAll(conn)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=8000)
